@@ -21,15 +21,12 @@ TARGET_BOOTLOADER_NAME := fx3
 
 TARGET_PRODUCT := fx3
 
-BOARD_KERNEL_CMDLINE := androidboot.hardware=fx3mt user_debug=31 vmalloc=308M
+BOARD_KERNEL_CMDLINE := androidboot.hardware=fx3mt user_debug=31 vmalloc=308M selinux=permissive
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 
 TARGET_PREBUILT_KERNEL := device/lge/fx3mt/kernel
-
-TARGET_KERNEL_CONFIG := fx3_mpcs_defconfig
-TARGET_KERNEL_SOURCE := kernel/lge/fx3
 
 # Linaro Optimization
 TARGET_USE_O3 := true
@@ -54,10 +51,27 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_VOLD_MAX_PARTITIONS := 97
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/lge/fx3mt/recovery/fstab.fx3mt
-TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
-ENABLE_LOKI_RECOVERY := true
+TARGET_RECOVERY_FSTAB := device/lge/fx3mt/recovery/twrp.fstab
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_RECOVERY_SWIPE := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
+
+DEVICE_RESOLUTION := 480x800
+RECOVERY_SDCARD_ON_DATA := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+
+#TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/devices/platform/msm_fb.524801/leds/lcd-backlight/brightness\"
+#TW_BRIGHTNESS_PATH := "/sys/devices/platform/msm_fb.524801/leds/lcd-backlight/brightness"
+
+TW_NO_REBOOT_BOOTLOADER := true 
+TW_NO_USB_STORAGE := true
+TW_DEFAULT_EXTERNAL_STORAGE := false
+TW_FLASH_FROM_STORAGE := true
+TW_NO_SCREEN_TIMEOUT := true
+#TW_BOARD_CUSTOM_GRAPHICS := ../../../device/lge/fx3mt/graphics.c
+
+TARGET_RECOVERY_QCOM_RTC_FIX := true
 

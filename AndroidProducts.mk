@@ -1,2 +1,3 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/device_fx3mt.mk
+    $(LOCAL_DIR)/device.mk \
+    $(LOCAL_DIR)/omni_fx3mt.mk

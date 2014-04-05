@@ -17,8 +17,8 @@ endif
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_fx3
-PRODUCT_DEVICE := fx3
+PRODUCT_NAME := full_fx3mt
+PRODUCT_DEVICE := fx3mt
 
 $(call inherit-product, hardware/qcom/msm8960/msm8960.mk)
 
