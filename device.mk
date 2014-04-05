@@ -22,6 +22,10 @@ PRODUCT_DEVICE := fx3mt
 
 $(call inherit-product, hardware/qcom/msm8960/msm8960.mk)
 
+## TWRP
+PRODUCT_COPY_FILES += \
+    device/lge/fx3mt/recovery/twrp.fstab:recovery/root/etc/fstab
+
 # Recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
