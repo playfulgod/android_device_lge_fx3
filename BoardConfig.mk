@@ -21,15 +21,14 @@ TARGET_BOOTLOADER_NAME := fx3
 
 TARGET_PRODUCT := fx3
 
-BOARD_KERNEL_CMDLINE := androidboot.hardware=fx3mt user_debug=31 vmalloc=308M
+BOARD_KERNEL_CMDLINE := androidboot.hardware=fx3mt user_debug=31 vmalloc=308M selinux=permissive
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 
 TARGET_PREBUILT_KERNEL := device/lge/fx3mt/kernel
-
-TARGET_KERNEL_CONFIG := fx3_mpcs_defconfig
 TARGET_KERNEL_SOURCE := kernel/lge/fx3
+TARGET_KERNEL_CONFIG := fx3_mpcs_tmo_defconfig
 
 # Linaro Optimization
 TARGET_USE_O3 := true
@@ -61,3 +60,4 @@ ENABLE_LOKI_RECOVERY := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_RECOVERY_SWIPE := true
 
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
